@@ -1,0 +1,36 @@
+---
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.0.1
+    hooks:
+      - id: check-added-large-files
+      - id: check-json
+      - id: pretty-format-json
+        args: ["--autofix"]
+      - id: check-yaml
+      - id: end-of-file-fixer
+      - id: forbid-new-submodules
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-case-conflict
+      - id: detect-private-key
+      - id: forbid-new-submodules
+      - id: mixed-line-ending
+      # - id: no-commit-to-branch # protects master/main from commit
+  - repo: https://github.com/antonbabenko/pre-commit-terraform
+    rev: v1.50.0
+    hooks:
+      - id: terraform_fmt
+      - id: terraform_validate
+      - id: terraform_tflint
+        args:
+          - "--args=--enable-rule=terraform_documented_variables"
+      - id: terraform_tfsec # Generates an error with features required
+      - id: terraform_docs
+        exclude: docs/CHANGELOG.md
+  - repo: https://github.com/thlorenz/doctoc
+    rev: v2.0.1
+    hooks:
+      - id: doctoc
+        exclude: docs/CHANGELOG.md
+        args: [--notitle, --update-only, .]

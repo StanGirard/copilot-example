@@ -1,0 +1,28 @@
+{
+  "author": "Stanislas Girard <stan@primates.dev> (https://primates.dev)",
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "description": "All My confs",
+  "devDependencies": {
+    "cz-conventional-changelog": "^3.3.0"
+  },
+  "name": "moac",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/StanGirard/copilot-example.git"
+  },
+  "scripts": {
+    "check:markdown": "find docs -name '*.md' -exec npx markdown-link-check -q {} \\;",
+    "dry-run": "standard-version --infile docs/CHANGELOG.md --dry-run --no-verify",
+    "version": "standard-version --infile docs/CHANGELOG.md --no-verify"
+  },
+  "standard-version": {
+    "skip": {
+      "tag": true
+    }
+  },
+  "version": "0.0.0"
+}
